@@ -20,7 +20,7 @@ class Example(QMainWindow):
         exitAction.triggered.connect(qApp.quit)
 
         menubar = self.menuBar()
-        menubar.setNativeMenuBar(False)
+        # menubar.setNativeMenuBar(False)
         fileMenu = menubar.addMenu('&文件')
         fileMenu.addAction(exitAction)
 
