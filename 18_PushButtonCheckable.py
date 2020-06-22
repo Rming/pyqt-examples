@@ -13,7 +13,7 @@ class Example(QWidget):
         self.initUI()
 
     def initUI(self):
-        self.color = QColor(0, 0,0 )
+        self.color = QColor(0, 0, 0)
         redBtn = QPushButton('Red', self)
         redBtn.setCheckable(True)
         redBtn.move(10, 10)
