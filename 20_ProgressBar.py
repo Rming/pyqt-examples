@@ -17,22 +17,36 @@ class Example(QWidget):
         self.pbar = QProgressBar(self)
         self.pbar.setGeometry(30, 40, 200, 25)
 
+        self.btn = QPushButton('Start', self)
+        self.btn.move(40, 80)
+        self.btn.clicked.connect(self.doAction)
+
+        self.timer = QBasicTimer()
+        self.step = 0
+
         # position
         self.setGeometry(300, 300, 350, 150)
         # window title
-        self.setWindowTitle("Slider")
+        self.setWindowTitle("ProgressBar")
         # show window
         self.show()
 
-    def changeValue(self, value):
-        if value == 0:
-            self.label.setPixmap(QPixmap("images/mute.png"))
-        elif 0 < value <= 30:
-            self.label.setPixmap(QPixmap("images/min.png"))
-        elif 30 < value <= 80:
-            self.label.setPixmap(QPixmap("images/med.png"))
+    def timerEvent(self, e):
+        if self.step >= 100:
+            self.timer.stop()
+            self.btn.setText("Finished")
+            return
+
+        self.step += 1
+        self.pbar.setValue(self.step)
+
+    def doAction(self):
+        if self.timer.isActive():
+            self.timer.stop()
+            self.btn.setText("Start")
         else:
-            self.label.setPixmap(QPixmap("images/max.png"))
+            self.timer.start(100, self)
+            self.btn.setText('Stop')
 
 
 if __name__ == "__main__":
