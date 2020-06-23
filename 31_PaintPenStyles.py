@@ -18,7 +18,7 @@ class Example(QWidget):
         # position
         self.setGeometry(300, 300, 350, 350)
         # window title
-        self.setWindowTitle("Paint pen")
+        self.setWindowTitle("Paint pen styles")
         # show window
         self.show()
 
