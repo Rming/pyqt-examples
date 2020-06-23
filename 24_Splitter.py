@@ -38,7 +38,7 @@ class Example(QWidget):
         # position
         self.setGeometry(300, 300, 350, 350)
         # window title
-        self.setWindowTitle("Pixmap")
+        self.setWindowTitle("Splitter")
         # show window
         self.show()
 
